@@ -23,7 +23,7 @@ class Model {
             return std::distance(items_.cbegin(), ConstIterator(iterator_));
         }
 
-        ValueType GetContentByIterator() const {
+        ValueType GetСontentByIterator() const {
             return IsIteratorEnd() ? ValueType{} : *iterator_;
         }
 
@@ -124,20 +124,6 @@ class Model {
             items_ = ::MergeSort(items_, std::less<ValueType>());
             SetIteratorBegin();
         }
-        // Изначальный вариант но он не справится с регистронезависимой сортировкой кириллических строк
-        // void MergeSortCaseFree() {
-        //     auto case_free_predicat = [](unsigned char lc, unsigned char rc) {
-        //         return std::tolower(lc) < std::tolower(rc);
-        //     };
-
-        //     auto case_free_sort = [&](const std::string& left, const std::string& right) {
-        //         bool result = std::lexicographical_compare(left.begin(), left.end(), right.begin(), right.end(), case_free_predicat);
-        //         return result;
-        //     };
-
-        //     items_ = ::MergeSort(items_, case_free_sort);
-        //     SetIteratorBegin();
-        // }
 
         void MergeSortCaseFree() {
             auto case_free_compare = [](const std::string& left, const std::string& right) {

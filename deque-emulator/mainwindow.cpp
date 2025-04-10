@@ -1,11 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QMessageBox>
-#include <QFileDialog>
-#include <QFile>
-#include <QTextStream>
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow) {
@@ -88,7 +83,7 @@ void MainWindow::ButtonChangesForEnd() {
 }
 
 void MainWindow::ChangeTxtElemContent() {
-    auto text = model_.GetContentByIterator();
+    auto text = model_.GetСontentByIterator();
     ui->txt_elem_content->setText(QString::fromStdString(text));
 }
 
